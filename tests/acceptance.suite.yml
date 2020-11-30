@@ -8,6 +8,14 @@ actor: AcceptanceTester
 modules:
     enabled:
         - PhpBrowser:
-            url: https://codeception.com/
+            url: http://localhost/test.local/
         - \Helper\Acceptance
+        - Db:
+              dsn: 'mysql:host=localhost;dbname=wordpress'
+              user: 'wordpress'
+              password: '12345'
+              dump: 'tests/_data/wordpress_dump.sql'
+              populate: true
+              cleanup: true
+              reconnect: true
 step_decorators: ~        
